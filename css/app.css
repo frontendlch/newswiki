@@ -1,0 +1,24 @@
+.titulo {
+  color: gray;
+}
+.destacado__banner {
+  height: 200px;
+}
+.destacado__fecha {
+  font-size: small;
+  color: darkgray;
+  float: left;
+}
+.containerFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 200px;
+}
+.navbar {
+  border-radius: 0;
+}
+.img-detail {
+  width: 100%;
+}

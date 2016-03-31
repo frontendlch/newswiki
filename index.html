@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>News Wiki</title>
+  <!--  Pages Styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!--  Angular Scripts -->
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-mocks.js"></script>
+  <script type="text/javascript" src="js/angular-resource.min.js"></script>
+  <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="js/angular-messages.min.js"></script>
+  <script type="text/javascript" src="js/angular-locale_es-mx.js"></script>
+
+  <!--  Aplication Script -->
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mask.js"></script>
+  <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+  <!--  Controllers -->
+  <script type="text/javascript" src="app/news/newsCtrl.js"></script>
+  <script type="text/javascript" src="app/news/newsDetailCtrl.js"></script>
+  <script type="text/javascript" src="app/news/newsEditCtrl.js"></script>
+  <script type="text/javascript" src="app/categories/categoriesCtrl.js"></script>
+  <!--  Services -->
+  <script type="text/javascript" src="common/services/common.services.js"></script>
+  <script type="text/javascript" src="common/services/common.servicesMock.js"></script>
+  <script type="text/javascript" src="common/services/categories/categoriesService.js"></script>
+  <script type="text/javascript" src="common/services/news/newsService.js"></script>
+
+</head>
+<body ng-app="newsWikiApp">
+
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">News Wiki</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li ui-sref-active="active">
+            <a ui-sref="home">
+              <i class="glyphicon glyphicon-home"></i>
+            </a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="newsList">Noticias</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="newsEdit.info({idNoticia : 0})">
+              <i class="glyphicon glyphicon-plus"></i>
+              Agregar Noticias
+            </a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <!-- Vista -->
+    <div ui-view></div>
+  </div>
+
+</body>
+</html>

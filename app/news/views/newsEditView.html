@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{vm.titulo}}</h3>
+    </div>
+    <div class="panel-body">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li ui-sref-active="active"><a ui-sref=".info">Información</a></li>
+        <li ui-sref-active="active"><a ui-sref=".tags">Administracón de Tags</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" ui-view></div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="text-center" ng-controller="CategoriesCtrl as cc">
+  <hr>
+  <button type="button" class="btn btn-default" ng-click="cc.toogleCategories()">{{cc.showCategories? "Ocultar" : "Mostrar"}} Categorias</button>
+  <hr>
+  <div class="row" ng-show="cc.showCategories">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary" ng-repeat="cate in cc.categories" ng-click="vm.onCategoryClick(cate)">
+        <input type="radio" name="options" id="{{cate}}" autocomplete="off"> {{cate}}
+      </label>
+      <label class="btn btn-primary active" ng-click="vm.onCategoryClick(cate)">
+        <input type="radio" name="options" id="mostrarTodo" autocomplete="off"> Mostrar Todos
+      </label>
+    </div>
+  </div>
+</div>
+
+<!--  Aqui estaba en controlador NewsCtrl -->
+<div>
+
+  <div class="row">
+    <fieldset>
+      <legend class="titulo">Destacados</legend>
+    </fieldset>
+  </div>
+
+  <div class="row containerFlex">
+    <div class="col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter:{destacado:true} | filter:{categoria:vm.filterCategory} | orderBy: '-fechaPublicacion'">
+      <div class="thumbnail">
+        <img class="destacado__banner" ng-src="{{newsItem.banner}}" alt="destacados">
+        <div class="caption">
+          <span class="destacado__fecha">{{newsItem.fechaPublicacion | date:'longDate'}}</span>
+          <h3>{{newsItem.tituloNoticia}}</h3>
+          <p>{{newsItem.descripcionNoticia.substring(0,200) + "..."}}</p>
+          <p>
+            <a ui-sref="newsDetail({idNoticia : newsItem.idNoticia})" class="btn btn-primary" role="button">Leer mas</a>
+            <a ui-sref="newsEdit.info({idNoticia : newsItem.idNoticia})" class="btn btn-default" role="button">Editar</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" ng-if="(vm.news | filter:{destacado:true} | filter:{categoria:vm.filterCategory}).length == 0">
+      <p>No hay noticias destacadas por mostrar</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <fieldset>
+      <legend class="titulo">Ultimas Noticias</legend>
+    </fieldset>
+  </div>
+
+  <div class="row containerFlex">
+    <div class="col-sm-6 col-md-3" ng-repeat="newsItem in vm.news | filter:{destacado:false} | filter:{categoria:vm.filterCategory} | orderBy: '-fechaPublicacion'">
+      <div class="thumbnail">
+        <img class="destacado__banner" ng-src="{{newsItem.banner}}" alt="destacados">
+        <div class="caption">
+          <span class="destacado__fecha">{{newsItem.fechaPublicacion | date:'longDate'}}</span>
+          <h3>{{newsItem.tituloNoticia}}</h3>
+          <p>{{newsItem.descripcionNoticia.substring(0,200) + "..."}}</p>
+          <p>
+            <a ui-sref="newsDetail({idNoticia : newsItem.idNoticia})" class="btn btn-primary" role="button">Leer mas</a>
+            <a ui-sref="newsEdit.info({idNoticia : newsItem.idNoticia})" class="btn btn-default" role="button">Editar</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" ng-if="(vm.news | filter:{destacado:false} | filter:{categoria:vm.filterCategory}).length == 0">
+      <p>No hay ultimas noticias por mostrar</p>
+    </div>
+  </div>
+
+</div>

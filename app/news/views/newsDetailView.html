@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12">
+    <strong>{{vm.newsItem.fechaPublicacion | date:'longDate'}}</strong>
+    <h1>{{vm.newsItem.tituloNoticia}}</h1>
+  </div>
+  <div class="col-md-5">
+    <img class="img-detail" ng-src="{{vm.newsItem.banner}}" alt="Imagen">
+  </div>
+  <div class="col-md-7">
+    <p>{{vm.newsItem.descripcionNoticia}}</p>
+    <h4>Tags Relacionados:</h4>
+    <p>{{vm.newsItem.tagList}}</p>
+  </div>
+</div>
